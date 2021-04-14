@@ -3,26 +3,15 @@ const WilderModel = require("../models/Wilder");
 
 module.exports = {
   create: async (req, res) => {
-    try {
-      await WilderModel.init();
-      const wilder = new WilderModel(req.body);
-      const result = await wilder.save();
-      res.json({ success: true, result });
-    } catch (err) {
-      res.json({ success: false, result: err });
-    }
+    await WilderModel.init();
+    const wilder = new WilderModel(req.body);
+    const result = await wilder.save();
+    res.json({ success: true, result });
   },
-  retrieve: (req, res) => {
-    WilderModel.find()
-    .then(wilder => {
-        if (!wilder) res.json({ success: false, result: "No wilders found!"})
-
-        res.json({ success: true, result: result})
-    })
-    .catch(err => {
-        res.json({ success: false, result: "Something went wrong"})
-    })
-},
+  read: async (req, res) => {
+    const result = await WilderModel.find();
+    res.json({ success: true, result });
+  },
 update: (req, res) => {
   WilderModel.updateOne({_id: req.body._id}, req.body)
   .then(wilder => {
