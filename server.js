@@ -4,7 +4,7 @@ const WilderModel = require("./models/Wilder");
 const wilderController = require("./controllers/Wilder");
 const app = express();
 
-// database
+// Database connection
 mongoose
   .connect("mongodb://127.0.0.1:27017/wilderdb", {
     useNewUrlParser: true,
@@ -15,16 +15,19 @@ mongoose
   .then(() => console.log("Connected to database"))
   .catch((err) => console.log(err));
 
-// middleware
+// Middleware?
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// routes
+// Routing
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
 app.post("/api/wilder/create", wilderController.create);
+app.post("/api/wilder/update", wilderController.update);
+app.post("/api/wilder/read", wilderController.read);
+app.post("/api/wilder/delete", wilderController.delete);
 
-// start server
+// Start the server
 app.listen(3000, () => console.log("Server started on 3000"));
