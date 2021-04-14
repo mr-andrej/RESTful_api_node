@@ -3,6 +3,12 @@ const mongoose = require("mongoose");
 const WilderModel = require("./models/Wilder");
 const wilderController = require("./controllers/Wilder");
 const app = express();
+const asyncHandler = require('express-async-handler')
+ 
+express.get('/', asyncHandler(async (req, res, next) => {
+    const bar = await foo.findAll();
+    res.send(bar)
+}))
 
 // Database connection
 mongoose
