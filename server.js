@@ -26,8 +26,8 @@ app.get("/", (req, res) => {
 
 app.post("/api/wilder/create", wilderController.create);
 app.post("/api/wilder/update", wilderController.update);
-app.post("/api/wilder/read", wilderController.read);
-app.post("/api/wilder/delete", wilderController.delete);
+app.get("/api/wilder/retrieve", wilderController.retrieve);
+app.delete("/api/wilder/delete", wilderController.delete);
 
 // Start the server
 app.listen(3000, () => console.log("Server started on 3000"));

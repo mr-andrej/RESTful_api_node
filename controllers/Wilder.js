@@ -15,15 +15,15 @@ module.exports = {
         });
     });
   },
-  read: (req, res) => {
+  retrieve: (req, res) => {
     WilderModel.find()
     .then(wilder => {
         if (!wilder) res.json({ success: false, result: "No wilders found!"})
 
-        res.json({ sucess: true, result: result})
+        res.json({ success: true, result: result})
     })
     .catch(err => {
-        res.json({ success: false, result: err})
+        res.json({ success: false, result: "Something went wrong"})
     })
 },
 update: (req, res) => {

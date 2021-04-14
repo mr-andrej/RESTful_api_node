@@ -1,0 +1,23 @@
+POST http://localhost:3000/api/wilder/update HTTP/1.1
+content-type: application/json
+
+{
+    
+    "_id": "60769a968e2f5058d851d715",
+    "name": "Http WILDER",
+    "city": "Tokyo",
+    "skills": [
+      {
+        "_id": "60769a968e2f5058d851d716",
+        "title": "Expresso",
+        "votes": 5
+      },
+      {
+        "_id": "60769a968e2f5058d851d717",
+        "title": "Mango",
+        "votes": 12
+      }
+    ],
+    "__v": 0
+  
+}

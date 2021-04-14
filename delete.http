@@ -1,0 +1,4 @@
+GET http://localhost:3000/api/wilder/retrieve
+content-type: application/json
+
+{"_id": "60769c54f9481a5d7c156240"}

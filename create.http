@@ -2,10 +2,10 @@ POST http://localhost:3000/api/wilder/create HTTP/1.1
 content-type: application/json
 
 {
-    "name":"Http Wilder",
+    "name":"Http Protocol",
     "city": "Londres",
     "skills":[
-        {"title":"express", "votes":5},
+        {"title":"express", "votes":2},
         {"title":"mongo", "votes":12}
     ]
 }
