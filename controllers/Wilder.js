@@ -2,18 +2,15 @@
 const WilderModel = require("../models/Wilder");
 
 module.exports = {
-  create: (req, res) => {
-    WilderModel.init().then(() => {
+  create: async (req, res) => {
+    try {
+      await WilderModel.init();
       const wilder = new WilderModel(req.body);
-      wilder
-        .save()
-        .then((result) => {
-          res.json({ success: true, result: result });
-        })
-        .catch((err) => {
-          res.json({ success: false, result: err });
-        });
-    });
+      const result = await wilder.save();
+      res.json({ success: true, result });
+    } catch (err) {
+      res.json({ success: false, result: err });
+    }
   },
   retrieve: (req, res) => {
     WilderModel.find()

@@ -1,2 +1,1 @@
-GET http://localhost:3000/api/wilder/retrieve
-content-type: application/json
+GET http://localhost:3000/api/wilder/retrieve HTTP/1.1
